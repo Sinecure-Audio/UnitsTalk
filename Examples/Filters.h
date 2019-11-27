@@ -4,11 +4,11 @@
 template<typename NumericType>
 struct UnitsSVFParams : public dsp::StateVariableFilter::Parameters<NumericType>
 {
-	void setCutOffFrequency(const double& sampleRate, const NumericType& frequency, const ResonanceCoefficient<NumericType>& resonance = QCoefficient<NumericType>(static_cast<NumericType>(1.0 / MathConstants< NumericType >::sqrt(2)))) noexcept {
+	void setCutOffFrequency(const double& sampleRate, const NumericType& frequency, const ResonanceCoefficient<NumericType>& resonance = QCoefficient<NumericType>{NumericType{1} / MathConstants< NumericType >::sqrt(2)}) noexcept {
 		dsp::StateVariableFilter::Parameters<NumericType>::setCutOffFrequency(std::forward<const double>(sampleRate), std::forward<const NumericType>(frequency), resonance.count());
 	}
 
-	void setCutOffFrequency(double sampleRate, NumericType frequency, NumericType resonance = static_cast<NumericType>(1.0 / MathConstants< NumericType >::sqrt(2))) {
+	void setCutOffFrequency(double sampleRate, NumericType frequency, NumericType resonance = NumericType{1} / MathConstants< NumericType >::sqrt(2)) {
 		jassertfalse;// "Use units for your resonance parameter instead of numeric types!");
 	}
 };
@@ -97,10 +97,10 @@ struct UnitsIIRCoefficients : public dsp::IIRCoefficients
     
 };
 
-class UnitsFilterAudioProcessor : public UnitsFilterAudioProcessor
+class UnitsFilterAudioProcessor : public AudioProcessor
 {
 //...
-}
+
 
 private:
     const double incrementAmount{.2};
