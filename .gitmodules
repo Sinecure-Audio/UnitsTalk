@@ -1,3 +1,6 @@
 [submodule "Units"]
 	path = Units
 	url = https://github.com/Sinecure-Audio/Units.git
+[submodule "Units FM Synth/Interval"]
+	path = Units FM Synth/Interval
+	url = https://github.com/Sinecure-Audio/Interval.git
