@@ -1,0 +1,1 @@
+A collection of resources for the talk <em>Units of Measurement in C++</em> given at ADC'19. Contains examples for using units with JUCE's DSP code, as well as an FM synthesizer plugin that uses units for some of its parameters and audio code.
